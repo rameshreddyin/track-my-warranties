@@ -104,5 +104,3 @@ export const useWarrantyStore = create<WarrantyState>()(
     }
   )
 );
-
-<lov-add-dependency>zustand@latest</lov-add-dependency>
