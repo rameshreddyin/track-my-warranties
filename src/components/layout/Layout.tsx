@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Header } from './Header';
+import { BottomNav } from './BottomNav';
 import { LayoutProps } from '@/lib/types';
 
 export const Layout: React.FC<LayoutProps> = ({
@@ -17,11 +18,12 @@ export const Layout: React.FC<LayoutProps> = ({
           showNotifications={true}
         />
       )}
-      <main className="flex-1 container py-4">
+      <main className="flex-1 container py-4 pb-24">
         <div className="animate-slide-up">
           {children}
         </div>
       </main>
+      <BottomNav />
     </div>
   );
 };
