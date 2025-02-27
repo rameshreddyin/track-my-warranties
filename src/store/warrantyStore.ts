@@ -1,12 +1,12 @@
 
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { Warranty, ContactInfo } from '@/lib/types';
+import { Warranty, ContactInfo, WarrantyFormData } from '@/lib/types';
 import { addMonths, isPast, isWithinInterval, subDays } from 'date-fns';
 
 interface WarrantyState {
   warranties: Warranty[];
-  addWarranty: (warranty: Omit<Warranty, 'id' | 'expiryDate' | 'createdAt'>) => void;
+  addWarranty: (warranty: Omit<WarrantyFormData, "id" | "expiryDate" | "createdAt">) => string;
   updateWarranty: (id: string, warranty: Partial<Warranty>) => void;
   deleteWarranty: (id: string) => void;
   getWarranty: (id: string) => Warranty | undefined;
@@ -37,8 +37,15 @@ export const useWarrantyStore = create<WarrantyState>()(
           id,
           expiryDate,
           createdAt,
+          productName: warrantyData.productName,
+          brand: warrantyData.brand,
+          category: warrantyData.category,
+          purchaseDate: warrantyData.purchaseDate,
+          warrantyPeriod: warrantyData.warrantyPeriod,
+          price: warrantyData.price,
+          receiptImage: warrantyData.receiptImage,
+          notes: warrantyData.notes,
           contactInfo,
-          ...warrantyData,
         };
         
         set((state) => ({
