@@ -42,7 +42,7 @@ const Menu = () => {
         { 
           icon: User, 
           label: "Profile", 
-          path: "#",
+          path: "/profile",
           description: "Manage your personal information"
         },
         { 
