@@ -15,7 +15,7 @@ import {
   Smartphone,
   Clock,
   Languages,
-  CloudBackup,
+  CloudUpload,
   FileText,
   ExternalLink
 } from 'lucide-react';
@@ -87,7 +87,7 @@ const Menu = () => {
           description: "Set up notification timing"
         },
         { 
-          icon: CloudBackup, 
+          icon: CloudUpload, 
           label: "Backup & Restore", 
           path: "#", 
           description: "Manage your warranty data"
