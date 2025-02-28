@@ -10,6 +10,7 @@ import WarrantyDetails from "./pages/WarrantyDetails";
 import EditWarranty from "./pages/EditWarranty";
 import Search from "./pages/Search";
 import AllWarranties from "./pages/AllWarranties";
+import Menu from "./pages/Menu";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/edit/:id" element={<EditWarranty />} />
           <Route path="/search" element={<Search />} />
           <Route path="/all" element={<AllWarranties />} />
+          <Route path="/menu" element={<Menu />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

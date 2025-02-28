@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, Search, PlusCircle, ListFilter, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -13,7 +13,7 @@ export const BottomNav: React.FC = () => {
     { icon: ListFilter, label: 'All', path: '/all' },
     { icon: PlusCircle, label: 'Add', path: '/add' },
     { icon: Search, label: 'Search', path: '/search' },
-    { icon: Menu, label: 'Menu', path: '#', onClick: () => {} }
+    { icon: Menu, label: 'Menu', path: '/menu' }
   ];
   
   return (
@@ -24,7 +24,6 @@ export const BottomNav: React.FC = () => {
             key={item.label} 
             to={item.path}
             className="flex flex-col items-center"
-            onClick={item.onClick}
           >
             <Button 
               variant="ghost" 
