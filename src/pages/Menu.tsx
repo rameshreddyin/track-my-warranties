@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Layout } from '@/components/layout/Layout';
 import {
   Settings,
@@ -19,6 +19,46 @@ import { useToast } from '@/hooks/use-toast';
 
 const Menu = () => {
   const { toast } = useToast();
+  const [darkMode, setDarkMode] = useState(false);
+  
+  // Initialize dark mode state from localStorage or system preference
+  useEffect(() => {
+    // Check local storage first
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme === 'dark') {
+      setDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else if (savedTheme === 'light') {
+      setDarkMode(false);
+      document.documentElement.classList.remove('dark');
+    } else {
+      // Check system preference if no saved theme
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setDarkMode(prefersDark);
+      if (prefersDark) {
+        document.documentElement.classList.add('dark');
+      }
+    }
+  }, []);
+  
+  const toggleDarkMode = () => {
+    const newDarkModeState = !darkMode;
+    setDarkMode(newDarkModeState);
+    
+    if (newDarkModeState) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+    
+    toast({
+      title: newDarkModeState ? "Dark mode enabled" : "Light mode enabled",
+      description: `The app theme has been changed to ${newDarkModeState ? "dark" : "light"} mode.`,
+    });
+  };
   
   const handleLogout = () => {
     toast({
@@ -123,7 +163,10 @@ const Menu = () => {
                   <span className="text-xs text-muted-foreground">Switch between light and dark themes</span>
                 </div>
               </div>
-              <Switch />
+              <Switch 
+                checked={darkMode} 
+                onCheckedChange={toggleDarkMode} 
+              />
             </div>
           </Card>
           

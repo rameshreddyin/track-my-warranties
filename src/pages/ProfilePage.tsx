@@ -7,6 +7,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
+import { ChevronLeft } from 'lucide-react'; 
+import { useNavigate } from 'react-router-dom';
 import { 
   Form,
   FormControl,
@@ -32,6 +34,7 @@ type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
 const ProfilePage = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   
   const defaultValues: Partial<ProfileFormValues> = {
     name: "John Doe",
@@ -57,7 +60,17 @@ const ProfilePage = () => {
   return (
     <Layout>
       <div className="space-y-6">
-        <h1 className="text-2xl font-bold">Profile</h1>
+        <div className="flex items-center gap-2">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={() => navigate('/menu')}
+            className="mr-1"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </Button>
+          <h1 className="text-2xl font-bold">Profile</h1>
+        </div>
         
         <Card>
           <CardHeader>
