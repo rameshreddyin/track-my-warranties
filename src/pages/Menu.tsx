@@ -6,18 +6,10 @@ import {
   User,
   HelpCircle,
   Bell,
-  Share,
   Shield,
   Moon,
   LogOut,
-  Lock,
-  Mail,
-  Smartphone,
-  Clock,
-  Languages,
-  CloudUpload,
-  FileText,
-  ExternalLink
+  FileText
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
@@ -48,7 +40,7 @@ const Menu = () => {
         { 
           icon: Bell, 
           label: "Notifications", 
-          path: "#",
+          path: "/notifications",
           description: "Control how you're notified"
         },
       ]
@@ -61,36 +53,6 @@ const Menu = () => {
           label: "Preferences", 
           path: "#",
           description: "Customize your app experience"
-        },
-        { 
-          icon: Lock, 
-          label: "Privacy & Security", 
-          path: "#",
-          description: "Manage your data and security options"
-        },
-        { 
-          icon: Mail, 
-          label: "Communication", 
-          path: "#",
-          description: "Control your email preferences"
-        },
-        { 
-          icon: Smartphone, 
-          label: "Device Settings", 
-          path: "#",
-          description: "Configure device-specific options"
-        },
-        { 
-          icon: Clock, 
-          label: "Warranty Reminders", 
-          path: "#", 
-          description: "Set up notification timing"
-        },
-        { 
-          icon: CloudUpload, 
-          label: "Backup & Restore", 
-          path: "#", 
-          description: "Manage your warranty data"
         }
       ]
     },
@@ -106,26 +68,14 @@ const Menu = () => {
         { 
           icon: FileText, 
           label: "Terms & Conditions", 
-          path: "#",
+          path: "/terms",
           description: "Review our legal information"
         },
         { 
           icon: Shield, 
           label: "Privacy Policy", 
-          path: "#",
+          path: "/privacy",
           description: "Learn how we protect your data"
-        },
-        { 
-          icon: Share, 
-          label: "Share App", 
-          path: "#",
-          description: "Tell others about this app"
-        },
-        { 
-          icon: ExternalLink, 
-          label: "Visit Our Website", 
-          path: "#", 
-          description: "Learn more about our services"
         }
       ]
     }

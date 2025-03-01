@@ -11,6 +11,10 @@ import EditWarranty from "./pages/EditWarranty";
 import Search from "./pages/Search";
 import AllWarranties from "./pages/AllWarranties";
 import Menu from "./pages/Menu";
+import ProfilePage from "./pages/ProfilePage";
+import NotificationsPage from "./pages/NotificationsPage";
+import TermsPage from "./pages/TermsPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +33,10 @@ const App = () => (
           <Route path="/search" element={<Search />} />
           <Route path="/all" element={<AllWarranties />} />
           <Route path="/menu" element={<Menu />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/notifications" element={<NotificationsPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
